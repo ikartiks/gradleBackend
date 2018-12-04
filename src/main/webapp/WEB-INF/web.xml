@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee   
+    http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	
+	<!-- only to be used in case you are providing additional context param -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/applicationContext.xml</param-value>
+	</context-param>
+	
+	
+	
+	
+	
+	<!--  
+		log4j2 does not require defining a listener. it is added by default.
+	  	https://logging.apache.org/log4j/2.x/manual/webapp.html
+	  	
+	  	Note in case of gradle log4j2.xml is picked up from resources folder
+	 -->
+    
+    <context-param>
+        <param-name>log4jConfiguration</param-name>
+        <param-value>log4j2.xml</param-value>
+    </context-param>
+	
+	
+	<!-- for no timeout in spring security -->
+	<session-config>
+    		<session-timeout>-1</session-timeout>
+	</session-config>
+	
+	
+	<!-- Spring framework finds that the all URLs are secured and hence displays 
+		login page to the user. The user enters his login name and password. Spring 
+		framework validates the login name and password by using the entries in Spring 
+		configuration XML (spring-securityservlet.xml in our case) and redirects 
+		to the accessed original URL -->
+	<!-- Spring security related configuration ,this info added in spring-servlet 
+		only -->
+	
+	
+	
+	
+</web-app>

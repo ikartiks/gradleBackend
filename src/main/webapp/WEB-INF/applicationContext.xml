@@ -55,6 +55,13 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 		<!--prefix is the direcory where it will search for view (html/jsp/* files) 
 			suffix adds extension to returned view( from controller ) -->
 	</bean>
+	
+	
+	<!-- This class was just added to check if this file is getting referenced, u will see build failed as
+	bean not found in console  -->
+	<!-- <bean
+		class="com.kartiks.Lol">
+	</bean>  -->
 
 	
 

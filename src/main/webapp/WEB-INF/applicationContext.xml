@@ -48,7 +48,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 	-->
 	<mvc:resources mapping="/images/**" location="/images/" />
 	
-	<!--   -->
+	<!-- for spring mvc to work fine, note path is relative to this file -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/springpages/" />

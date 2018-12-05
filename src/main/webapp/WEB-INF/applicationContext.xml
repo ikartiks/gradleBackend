@@ -48,9 +48,10 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 	-->
 	<mvc:resources mapping="/images/**" location="/images/" />
 	
+	<!--   -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/" />
+		<property name="prefix" value="/WEB-INF/springpages/" />
 		<property name="suffix" value=".jsp" />
 		<!--prefix is the direcory where it will search for view (html/jsp/* files) 
 			suffix adds extension to returned view( from controller ) -->

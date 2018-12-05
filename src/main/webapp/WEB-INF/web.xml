@@ -42,9 +42,7 @@
 	<!-- this is not needed,everything in above config is true.
 		note revist org.springframework.web.context.ContextLoaderListener if required
 	 listener and context-param for applicationContext.xml file  
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener> 
+	
 	
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
@@ -52,6 +50,55 @@
 	</context-param>
 	-->
 	
+	<!-- Jersey rest -->
+	
+	<!-- without below listener spring mvc works fine but not jersey.
+		No WebApplicationContext found: no ContextLoaderListener registered? 
+	 	It loads your configuration files.
+	 	In the web MVC framework, each DispatcherServlet has its own WebApplicationContext, which inherits all the beans already defined in
+	  	the root WebApplicationContext. These inherited beans defined can be overridden in the servlet-specific scope, and new scope-specific
+	   	beans can be defined local to a given servlet instance.
+		The dispatcher servlet's application context is a web application context which is only applicable for the Web classes .
+		You cannot use these for your middle tier layers . These need a global app context using ContextLoaderListener .
+
+		Read the spring reference here for spring mvc .
+		https://docs.spring.io/spring/docs/3.0.x/spring-framework-reference/html/mvc.html
+		
+		also if laod on startup init param is 1 and not 2 it will give below error as spring servlet is loaded first, which has <load-on-startup>1</load-on-startup>
+		ClassNotFoundException: com.sun.jersey.spi.spring.container.servlet.SpringServlet
+		
+		https://www.javatpoint.com/load-on-startup
+		
+	-->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	 <servlet>
+	    <servlet-name>Jersey REST Service</servlet-name>
+	    <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+		<init-param>
+			<param-name>jersey.config.server.provider.packages</param-name>
+	        <param-value>com.kartiks.jersey.rest</param-value>
+	    </init-param>
+	    <!-- mapping java resource to json directly -->
+	    <init-param>
+			<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<!-- Enable Tracing support. -->
+        <init-param>
+            <param-name>jersey.config.server.tracing</param-name>
+            <param-value>ALL</param-value>
+        </init-param>
+	    <load-on-startup>2</load-on-startup>
+	  </servlet>
+	  <servlet-mapping>
+	    <servlet-name>Jersey REST Service</servlet-name>
+	    <url-pattern>/rest/*</url-pattern>
+	  </servlet-mapping>
+	  
+	  <!-- Jersey rest ends -->
 	
 	<!-- for no timeout in spring security -->
 	<session-config>

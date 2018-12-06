@@ -18,7 +18,7 @@ buildscript {
              jcenter()
        }
        dependencies {
-             classpath 'com.bmuschko:gradle-tomcat-plugin:2.4.1'
+             classpath 'com.bmuschko:gradle-tomcat-plugin:2.5'
        }
 }
 
@@ -39,14 +39,15 @@ dependencies {
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
     
-    def tomcatVersion = '8.0.46'
+    def tomcatVersion = '9.0.1'
     def springWebMvcVersion = '5.0.2.RELEASE'
     def springSecurityVersion = '5.0.0.RELEASE'
     def springAopVersion = '5.0.4.RELEASE'
     
-	tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
-	"org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
-	"org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
+    //https://github.com/bmuschko/gradle-tomcat-plugin
+	
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+           "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
 	
 	
 	compile 'javax.servlet.jsp:javax.servlet.jsp-api:2.3.1'
@@ -90,6 +91,8 @@ dependencies {
 }
 
 tomcat {
-	 httpPort = 8080
-	 contextPath = '/kartik'
+	httpProtocol = 'org.apache.coyote.http11.Http11Nio2Protocol'
+	ajpProtocol  = 'org.apache.coyote.ajp.AjpNio2Protocol'
+	httpPort = 8080
+	contextPath = '/kartik'
 }

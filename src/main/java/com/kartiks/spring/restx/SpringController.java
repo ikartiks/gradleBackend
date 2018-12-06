@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class SpringController {
 	
 	
-	//http://localhost:8080/kartik/springrest/kartik%20is%20awesome
+	//http://localhost:8080/kartik/springrest/movie/kartik%20is%20awesome
 	@RequestMapping(value = "/{name}", method = RequestMethod.GET)
 	public String getMovie(@PathVariable String name, ModelMap model) {
 		
@@ -30,7 +30,7 @@ public class SpringController {
 		return "list";
 	}
 
-	//http://localhost:8080/kartik/springrest/
+	//http://localhost:8080/kartik/springrest/movie/
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String getDefaultMovie(ModelMap model) {
 		

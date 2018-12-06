@@ -32,9 +32,10 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
+	<!-- we want spring rest to work only for urls starting with /springrest/ as otherwise it will try to find a view for index.html as well. -->
 	<servlet-mapping>
 		<servlet-name>mvc-dispatcher</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>/springrest/*</url-pattern>
 	</servlet-mapping>
 	
 	<!-- this is required for spring mvc to work, default servlet redirect to things mentioned in applicationContext.xml ends -->

@@ -63,9 +63,13 @@ dependencies {
 	//jax rs
 	compile group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.0'
  
- 	//log4j
+ 	//log4j for printing tomcat logs in console
 	compile 'org.apache.logging.log4j:log4j-api:2.10.0'
 	compile 'org.apache.logging.log4j:log4j-core:2.10.0'
+	
+	//for logger class in our java files, note its different from above
+	compile group: 'log4j', name: 'log4j', version: '1.2.17'
+	
 	
 	//jersey rest
 	compile 'org.glassfish.jersey.core:jersey-server:2.26'

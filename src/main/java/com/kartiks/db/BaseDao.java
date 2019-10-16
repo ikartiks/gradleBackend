@@ -12,9 +12,9 @@ import javax.persistence.Query;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
-import org.hibernate.engine.jdbc.connections.spi.ConnectionProvider;
-import org.hibernate.engine.spi.SessionFactoryImplementor;
-//import org.hibernate.service.jdbc.connections.spi.ConnectionProvider;
+import org.hibernate.engine.spi.SessionImplementor;
+import org.hibernate.internal.SessionImpl;
+import org.hibernate.jpa.HibernateEntityManager;
 
 public abstract class BaseDao<T> {
 	
@@ -106,12 +106,18 @@ public abstract class BaseDao<T> {
 	}
 	
 	public synchronized Connection getConnection() throws SQLException{
-		//TODO kartik if using old jar chnage in SearchUtil.java also & abstractBaseResourceService.java
-		Session session = em.unwrap(Session.class);
-		SessionFactoryImplementor sfi = (SessionFactoryImplementor) session.getSessionFactory();
-		ConnectionProvider cp = sfi.getConnectionProvider();
-		Connection connection = cp.getConnection();
-		return connection;
+		// TODO kartik if using old jar chnage in SearchUtil.java also & abstractBaseResourceService.java
+		
+		
+//		HibernateEntityManager hem = (HibernateEntityManager) em;
+//		  SessionImplementor sim = (SessionImplementor) hem.getSession();
+//		  return sim.connection();
+		
+//		Session session = em.unwrap(Session.class);
+		Session session = (Session)em.getDelegate();
+		SessionImpl sessionImpl = (SessionImpl) session;
+		Connection conn = sessionImpl.connection();
+		return conn;
 	}
 	
 	//Query support

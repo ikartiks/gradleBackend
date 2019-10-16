@@ -91,8 +91,6 @@ public class RESTErrorUtil {
 		WebApplicationException restException = new WebApplicationException(
 				errorResponse);
 		restException.fillInStackTrace();
-		// TODO:Bosco:Future:Open:Bosco: Need to log all these and add user to
-		// block list if this is deliberate
 		// Get user information
 		UserSessionBase userSession = ContextUtil.getCurrentUserSession();
 		Long sessionId = null;

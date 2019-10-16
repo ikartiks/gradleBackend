@@ -26,7 +26,6 @@ public class EWRoles extends EWBase{
 	
 	@Override
 	public int getMyClassType() {
-		// TODO Auto-generated method stub
 		return FSConstants.CLASS_TYPE_EWRoles;
 	}
 

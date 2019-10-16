@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="defaultPU">
+		<mapping-file>META-INF/jpa_named_queries.xml</mapping-file>
+		
+		<!-- <class>com.hopweb.base.entity.EWUser</class>
+		<class>com.hopweb.base.entity.EWMoment</class> -->
+         <!-- <class>ew.entity.EWBase</class>
+         <class>ew.entity.EWUser</class>
+         <class>ew.entity.EWGroup</class>
+         
+         DB view
+         <class>ew.db.view.EWMenuView</class>
+         <class>ew.db.view.EWGroupView</class> -->
+         <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+         <!-- <properties>
+         	<property name="hibernate.ejb.interceptor" value="ew.common.FSTrxInterceptor"/>
+         </properties> -->
+	</persistence-unit>
+</persistence>

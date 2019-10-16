@@ -84,27 +84,29 @@ dependencies {
 	//it throws an error saying message writer not found for object
 	compile group: 'com.google.code.gson', name: 'gson', version: '2.7'
 	
-	//java persistance with hibernate 
-	compile group: 'javax.persistence', name: 'persistence-api', version: '1.0.2'
+	//java persistance with hibernate 2.2 goes with hibernate 5
+	compile group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
+	
+	//mysql jdbc driver, required by c3p0 to make connections
+	compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.17'
+	
 
-	//hibernate
-	compile group: 'org.hibernate.javax.persistence', name: 'hibernate-jpa-2.0-api', version: '1.0.1.Final'
-	compile group: 'org.hibernate', name: 'hibernate-core', version: '5.3.7.Final'
-	compile group: 'org.hibernate', name: 'hibernate-infinispan', version: '5.3.7.Final', ext: 'pom'
-	compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.3.7.Final'
+	//hibernate, c3p0 is used for manging hibernate connections
+	compile group: 'org.hibernate.javax.persistence', name: 'hibernate-jpa-2.1-api', version: '1.0.2.Final'
+	compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.4.Final'
+	compile group: 'org.hibernate', name: 'hibernate-infinispan', version: '5.4.4.Final', ext: 'pom'
+	compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.4.4.Final'
+	compile group: 'org.hibernate', name: 'hibernate-c3p0', version: '5.4.4.Final'
+	compile group: 'org.hibernate', name: 'hibernate-validator', version: '5.4.3.Final'
+
 	
 	// other string util
 	compile group: 'net.htmlparser.jericho', name: 'jericho-html', version: '3.4'
 	compile group: 'com.googlecode.owasp-java-html-sanitizer', name: 'owasp-java-html-sanitizer', version: '20181114.1'
 	
-
-
+	//for javax.servlet.HttpServletRequest, Cookie etc
+	providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
 	
-	
-    
-
-	
- 
 }
 
 tomcat {

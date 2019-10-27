@@ -98,6 +98,7 @@ dependencies {
 	compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.4.4.Final'
 	compile group: 'org.hibernate', name: 'hibernate-c3p0', version: '5.4.4.Final'
 	compile group: 'org.hibernate', name: 'hibernate-validator', version: '5.4.3.Final'
+	// 5.4.4 not available for validator, note if you dont add it you get an error saying no validator found.
 
 	
 	// other string util

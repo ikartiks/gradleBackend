@@ -10,6 +10,7 @@ import com.kartiks.pojo.Greeting;
 @Path("/std")
 public class Controller {
 	
+	//http://localhost:8080/kartik/rest/std/greeting
 	@GET
 	@Path("/greeting")
     @Produces({MediaType.APPLICATION_JSON})

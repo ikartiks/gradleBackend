@@ -11,6 +11,7 @@ import com.kartiks.pojo.Greeting;
 public class Controller {
 	
 	//http://localhost:8080/kartik/rest/std/greeting
+	//just checking
 	@GET
 	@Path("/greeting")
     @Produces({MediaType.APPLICATION_JSON})

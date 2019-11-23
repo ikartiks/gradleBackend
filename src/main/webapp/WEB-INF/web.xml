@@ -73,11 +73,21 @@
 	-->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+		<!--  this is used for spring rest  -->
 	</listener>
+	
+	<listener>
+			<!--  this is used for jersey rest  -->
+	
+            <listener-class>
+                    org.springframework.web.context.request.RequestContextListener 
+            </listener-class>
+  </listener>
 	
 	 <servlet>
 	    <servlet-name>Jersey REST Service</servlet-name>
-	    <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+	    <!-- <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class> -->
+	    <servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
 		<init-param>
 			<param-name>jersey.config.server.provider.packages</param-name>
 	        <param-value>com.kartiks.jersey.rest</param-value>
@@ -105,7 +115,6 @@
 	<session-config>
     		<session-timeout>-1</session-timeout>
 	</session-config>
-	
 	
 	
 </web-app>

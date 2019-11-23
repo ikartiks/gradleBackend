@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd ">
 
 	<!-- ewuser and obj.userType= :userType -->
-	<!-- <named-query name="EWUser.authenticate">
+	<named-query name="EWUser.authenticate">
 		<query>select obj from EWUser obj WHERE obj.email = :email and obj.password = :password and obj.enabled=true
 		</query>
 	</named-query>
@@ -12,6 +12,6 @@
 	<named-query name="EWUser.findByUserName">
 		<query>select obj from EWUser obj WHERE obj.email = :email and obj.enabled=true
 		</query>
-	</named-query> -->
+	</named-query>
 
 </entity-mappings>

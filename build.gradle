@@ -63,10 +63,18 @@ dependencies {
 	
 	//jax rs
 	compile group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.0'
+	
+	//for spring autowired to work with jersey rest
+	compile group: 'com.sun.jersey.contribs', name: 'jersey-spring', version: '1.19.4'
+	
+	//for pojo mapping feature to work with jersey rest, beacase of above dependancy
+	compile group: 'com.fasterxml.jackson.jaxrs', name: 'jackson-jaxrs-json-provider', version: '2.10.0.pr1'
+	
+	
  
  	//log4j for printing tomcat logs in console
-	compile 'org.apache.logging.log4j:log4j-api:2.10.0'
-	compile 'org.apache.logging.log4j:log4j-core:2.10.0'
+	compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.12.1'
+  	compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.12.1'
 	
 	//for logger class in our java files, note its different from above
 	compile group: 'log4j', name: 'log4j', version: '1.2.17'

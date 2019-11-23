@@ -161,10 +161,11 @@ public class ManagerUser {
 			//check user name and password
 			VUser user=null;
 			vUser.setId(fromDb.getId());
-			//added so that users password wont be updated when someone else is creatign user
-			if(vUser.getCreatedBy()==null)
-				user=authenticateUser(vUser, request);
-			else 
+			//added so that users password wont be updated when someone else is creating user
+			//TODO kartik remove after adding spring security
+//			if(vUser.getCreatedBy()==null)
+//				user=authenticateUser(vUser, request);
+//			else 
 				user=vUser;
 			
 			

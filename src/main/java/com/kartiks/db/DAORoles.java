@@ -17,9 +17,10 @@ public class DAORoles extends BaseDao<EWRoles> {
 	public String getRoles(Long id){
 		
 		try{
+			System.out.println("user id is "+id);
 			String role=(String)getEm()
-					.createNativeQuery("SELECT role FROM `user_authorization` WHERE user_id=?1")
-					.setParameter("1", id)
+					.createNativeQuery("SELECT role FROM `user_authorization` WHERE user_id=?")
+					.setParameter(1, id)
 					.getSingleResult();
 			return role;
 		}catch(NoResultException e){

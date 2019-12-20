@@ -86,7 +86,9 @@
 	
 	 <servlet>
 	    <servlet-name>Jersey REST Service</servlet-name>
-	    <!-- <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class> -->
+	    <!-- <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+	    below one works for jersey rest with spring autowired and not just spring, so need to do it.
+	    otherwise even POJO mapping feature stopped working after new dependencies -->
 	    <servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
 		<init-param>
 			<param-name>jersey.config.server.provider.packages</param-name>

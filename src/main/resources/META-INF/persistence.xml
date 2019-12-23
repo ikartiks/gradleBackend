@@ -20,10 +20,6 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
          <class>ew.db.view.EWMenuView</class>
          <class>ew.db.view.EWGroupView</class> -->
          <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
-         <properties>
-         	<!-- <property name="hibernate.ejb.interceptor" value="ew.common.FSTrxInterceptor"/> -->
-         	<property name="hibernate.hbm2ddl.auto" value="update"/>
-         	
-         </properties>
+         
 	</persistence-unit>
 </persistence>
